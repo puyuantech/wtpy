@@ -86,8 +86,21 @@ class DataLoaderFromQdbToCSV():
         # todo@ronniehu
         df = df.reset_index()
 
-        print(df.columns.values)
-        pass
+        reserved_fields = ['datetime', 'open', 'low', 'volume', 'close', 'high', 'amount']
+        df = df.loc[:, reserved_fields]
+
+        df = df.rename(columns={'datetime': '<Time>', 
+                                'volume' : '<Vol>', 
+                                'amount' : '<Money>',
+                                'open' : '<Open>',
+                                'close' : '<Close>',
+                                'high' : '<High>',
+                                'low' : '<Low>'})
+
+        df['<Date>'] = df['<Time>'].astype('datetime64').dt.strftime('%Y/%m/%d')
+        df['<Time>'] = df['<Time>'].map(lambda t: t.time())
+
+        return df
 
     def handle_stk_daily(self, df: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
         # todo@ronniehu
@@ -183,19 +196,28 @@ class DataLoaderFromQdbToCSV():
         '''
         将证券代码存储为wt格式，目前只处理期货
         '''
-        cut = self.__sec_id.split('.')
-        left = cut[0]
-        right = cut[1]
+        split_sec_id = self.__sec_id.split('.')
+        left = split_sec_id[0]
+        right = split_sec_id[1]
 
-        sub = ''
-        code = ''
-        for ch in left:
-            if ch.isalpha():
-                sub += ch.lower()
-            elif ch.isnumeric():
-                code += ch
+        if self.__sec_type == SecType.FUT_MIN or self.__sec_type == SecType.FUT_DAILY:      
+            sub = ''
+            code = ''
+            for ch in left:
+                if ch.isalpha():
+                    sub += ch.lower()
+                elif ch.isnumeric():
+                    code += ch
 
-        self.__sec_id = right + '.' + sub + '.' + code
+            self.__sec_id = right + '.' + sub + '.' + code
+
+        elif self.__sec_type == SecType.STK_MIN or self.__sec_type == SecType.STK_DAILY:
+            if right == 'SZ':
+                right = 'SZSE'
+            elif right == 'SH':
+                right = 'SSE'
+            
+            self.__sec_id = right + '.STK.' + left
 
         return
 
@@ -242,7 +264,7 @@ class DataLoaderFromQdbToCSV():
             df = self.get_data(sec_id, sec_type, start_date, end_date, fields)
             df = self.trans_data(df)
             self.save_csv_data(df, path='/home/hujiaye/Wondertrader/storage')
-            self.save_bin_data('/home/hujiaye/Wondertrader/storage/csv', '/home/hujiaye/Wondertrader/storage/his', 'd')
+
             print(f"处理证券{sec_id}结束\n")
 
 
@@ -251,4 +273,4 @@ class DataLoaderFromQdbToCSV():
 
 if __name__ == "__main__":
     dl = DataLoaderFromQdbToCSV()
-    dl.load_data(['A2205.DCE'], SecType.FUT_MIN ,start_date=dt.date(2021,6,1), end_date=dt.date(2022,3,1))
+    dl.load_data(['000009.SZ'], SecType.STK_MIN ,start_date=dt.date(2021,6,1), end_date=dt.date(2022,3,1))
