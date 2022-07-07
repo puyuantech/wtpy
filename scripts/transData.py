@@ -8,7 +8,8 @@ from enum import Enum
 from typing import Optional, List, Union
 
 from wtpy.wrapper import WtDataHelper
-from wtpy.WtCoreDefs import WTSBarStruct, WTSTickStruct
+from wtpy.WtCoreDefs import WTSBarStruct, WTSTickStruct, BarList, TickList
+from wtpy.SessionMgr import SessionInfo, SessionMgr
 from ctypes import POINTER
 
 # export QDB_CONFIG_PATH=~/.qdb/config.yml
@@ -83,7 +84,6 @@ class DataLoaderFromQdbToCSV():
         pass
 
     def handle_stk_min(self, df: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
-        # todo@ronniehu
         df = df.reset_index()
 
         reserved_fields = ['datetime', 'open', 'low', 'volume', 'close', 'high', 'amount']
@@ -103,11 +103,22 @@ class DataLoaderFromQdbToCSV():
         return df
 
     def handle_stk_daily(self, df: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
-        # todo@ronniehu
         df = df.reset_index()
 
-        print(df.columns.values)
-        pass
+        reserved_fields = ['date', 'open', 'close', 'high', 'low', 'volume', 'amount']
+        df = df.loc[:, reserved_fields]
+
+        df = df.rename(columns={'date': '<Date>', 
+                                'volume' : '<Vol>', 
+                                'amount' : '<Money>',
+                                'open' : '<Open>',
+                                'close' : '<Close>',
+                                'high' : '<High>',
+                                'low' : '<Low>',})
+
+        df['<Date>'] = df['<Date>'].astype('datetime64').dt.strftime('%Y/%m/%d')
+
+        return df
     
     def handle_fut_tick(self, df: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
         # todo@ronniehu
@@ -190,11 +201,10 @@ class DataLoaderFromQdbToCSV():
         print(f'    Stage2:处理{self.__sec_id}的DataFrame格式完毕')
         
         return df
-
-    
+ 
     def trans_sec_id(self):
         '''
-        将证券代码存储为wt格式，目前只处理期货
+        将证券代码存储为wt格式，股票的北交所暂未支持
         '''
         split_sec_id = self.__sec_id.split('.')
         left = split_sec_id[0]
@@ -220,8 +230,7 @@ class DataLoaderFromQdbToCSV():
             self.__sec_id = right + '.STK.' + left
 
         return
-
-    
+   
     def save_csv_data(self, df: Optional[pd.DataFrame], path:str):
         '''
         存储DataFrame数据到指定路径的CSV文件中
@@ -237,29 +246,47 @@ class DataLoaderFromQdbToCSV():
             path += '/'
 
         path += 'csv/'
-
+        # 修改sec_id为wt格式
         self.trans_sec_id()
 
         filename = path + self.__sec_id + '_' + self.__suffix + '.csv'
-
         df.to_csv(filename, index=False)
 
         print(f'    Stage3: 以CSV格式存储{self.__sec_id}的DataFrame完毕')
 
     def save_bin_data(self, csvFolder: str, binFolder: str, period: str):
         '''
-        trans csv to dsb
+        [deprecated]trans csv to dsb:
+        由于dsb文件名，路径等问题，暂不使用该API
+        在回测时，会自动将CSV转为dsb，所以更不需要这个API了
         '''
         dtHelper = WtDataHelper()
         dtHelper.trans_csv_bars(csvFolder, binFolder, period)
-        
 
-    def load_data(self, sec_ids: Union[str, List[str]], sec_type: SecType, start_date: Optional[dt.date]=None, end_date: Optional[dt.date]=None, fields: List[str]=None, path:str='/home/wondertrader/storage/'):
+
+    def resample_bars(self, barFile:str, period:str, times:int, fromTime:int, endTime:int, sessInfo:SessionInfo, csvname:str):
+        '''
+        [deprecated]
+        '''
+        dtHelper = WtDataHelper()
+        res = dtHelper.resample_bars(barFile, period, times, fromTime, endTime, sessInfo)
+        df = res.to_pandas()
+        df.to_csv(csvname)        
+
+
+    def load_data(self, sec_ids: Union[str, List[str]], sec_type: SecType, start_date: Optional[dt.date]=None, end_date: Optional[dt.date]=None, fields: List[str]=None, path:str='/home/hujiaye/Wondertrader/storage/'):
         '''
         主力API，用于批量读取、转换格式、存储证券数据到CSV文件中
+
+        @sec_ids：单只证券或证券列表
+        @sec_type：证券类型
+        @start_date：起始时间，默认为None
+        @end_date：结束时间，默认为None
+        @fields：证券各字段
+        @path：证券数据存储路径
         '''
         for sec_id in sec_ids if isinstance(sec_ids, list) else [sec_ids]:
-            # print(f"处理证券{sec_id}:")
+            print(f"处理证券{sec_id}:")
             
             df = self.get_data(sec_id, sec_type, start_date, end_date, fields)
             df = self.trans_data(df)
@@ -273,4 +300,33 @@ class DataLoaderFromQdbToCSV():
 
 if __name__ == "__main__":
     dl = DataLoaderFromQdbToCSV()
-    dl.load_data(['000009.SZ'], SecType.STK_MIN ,start_date=dt.date(2021,6,1), end_date=dt.date(2022,3,1))
+    api = QdbApi()
+
+    # # 数据转储方法1
+    # stks = api.get_stk_list().reset_index()
+
+    # for stk in stks['stk_id']:
+    #     dl.load_data(stk, SecType.STK_DAILY)
+    #     # pass
+    # # 数据转储方式2
+    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY)
+
+    import sys
+    savedStdout = sys.stdout
+    savedStderr = sys.stderr
+    f = open('log.txt', 'w')
+
+    sys.stdout = f
+    sys.stderr = f
+
+    time1 = dt.datetime.now()
+    dl.load_data(list(api.get_stk_list().reset_index()['stk_id']), SecType.STK_DAILY)
+    time2 = dt.datetime.now()
+
+    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+
+
+    f.close()
+
+    sys.stdout = savedStdout
+    sys.stderr = savedStderr
