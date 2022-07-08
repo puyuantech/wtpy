@@ -1,8 +1,8 @@
-from fileinput import filename
 import sys
 sys.path.append('..')
 
 import os
+import shutil
 from qdb import QdbApi
 import datetime as dt
 import pandas as pd
@@ -256,30 +256,109 @@ class DataLoaderFromQdbToCSV():
 
         print(f'    Stage3: 以CSV格式存储{self.__sec_id}的DataFrame完毕')
 
-    def save_bin_data(self, csvFolder: str, binFolder: str, period: str):
+    def save_bin_data(self, csvFolder: str, binFolder: str):
         '''
+        把csv文件夹内的所有csv文件转化为dsb文件（支持不同频率的数据），并移动到正确的位置下
+
+        @csvFolder  csv文件夹
+        @binFolder  dsb文件夹
+        '''
+        # 创建分类文件夹
+        if not os.path.exists(csvFolder + '/m1'):
+            os.makedirs(csvFolder + '/m1')
+        if not os.path.exists(csvFolder + '/m5'):
+            os.makedirs(csvFolder + '/m5')
+        if not os.path.exists(csvFolder + '/d'):
+            os.makedirs(csvFolder + '/d')
+
+        # 对CSV文件夹内的所有CSV文件根据频率进行分类，分为分钟线、五分钟线、日线3类
+        csv_dir = os.walk(csvFolder)
+        files = []
+        for p, dir_list, file_list in csv_dir:
+            for filename in file_list:
+                if filename.endswith('.csv'):
+                    if filename.find('_m1') != -1:
+                        new_dir = os.path.join(csvFolder, 'm1/')
+                        new_filename = new_dir + filename
+                        filename = os.path.join(csvFolder, filename) 
+                        tup = (filename, new_filename)
+                        files.append(tup)    
+                    elif filename.find('_m5') != -1:
+                        new_dir = os.path.join(csvFolder, 'm5/')
+                        new_filename = new_dir + filename
+                        filename = os.path.join(csvFolder, filename) 
+                        tup = (filename, new_filename)
+                        files.append(tup)
+                    elif filename.find('_d') != -1:
+                        new_dir = os.path.join(csvFolder, 'd/')
+                        new_filename = new_dir + filename
+                        filename = os.path.join(csvFolder, filename) 
+                        tup = (filename, new_filename)
+                        files.append(tup)
         
-        '''
+        # 复制文件到分类文件夹，因为文件循环内复制文件到内部目录会使得该文件被再次读取，所以复制文件操作放到外面执行      
+        for item in files:
+            shutil.copy(item[0], item[1])
+            print(f'copy file {item[0]} to {item[1]}')
+
+
+        # 创建临时文件夹用于临时存储本次转储的dsb文件，这是因为trans_csv_bars()后dsb文件名、文件位置不对，需要重新命名和移动位置
+        if not binFolder.endswith('/'):
+            binFolder  += '/'
+        tmpFolder = binFolder + 'tmp'
+
+        # 将所有类型csv转化为dsb
         dtHelper = WtDataHelper()
-        dtHelper.trans_csv_bars(csvFolder, binFolder, period)
+        dir_m1 = os.path.join(csvFolder, 'm1/')
+        dtHelper.trans_csv_bars(dir_m1, tmpFolder, 'm1')
+        dir_m5 = os.path.join(csvFolder, 'm5/')
+        dtHelper.trans_csv_bars(dir_m5, tmpFolder, 'm5')
+        dir_d = os.path.join(csvFolder, 'd/')
+        dtHelper.trans_csv_bars(dir_d, tmpFolder, 'd')
         
-        
-        dir = os.walk(binFolder)
+        # 删除分类文件夹
+        shutil.rmtree(dir_m1)
+        shutil.rmtree(dir_m5)
+        shutil.rmtree(dir_d)
+
+        # 将dsb文件移动到正确的路径下
+        dir = os.walk(tmpFolder)
         for p, dir_list, file_list in dir:
             for filename in file_list:
+                # path为每个文件具体的导出路径
                 path = binFolder
 
                 if filename.endswith('.dsb'):
                     split_filename = filename.split('.')
 
-                    if (split_filename[2].find('m1') != -1):
+                    if split_filename[2].find('_m1') != -1:
                         if not path.endswith('/'):
                             path  += '/'
                         path += 'min1/'
-                    
+                    elif split_filename[2].find('_m5') != -1:
+                        if not path.endswith('/'):
+                            path  += '/'
+                        path += 'min5/'
+                    elif split_filename[2].find('_d') != -1:
+                        if not path.endswith('/'):
+                            path  += '/'
+                        path += 'day/'
+
                     path += split_filename[0] + '/'
 
-                    print(path)
+                    if not os.path.exists(path):
+                        os.makedirs(path)
+
+                    # 重命名并移动文件
+                    filename = os.path.join(tmpFolder, filename)
+                    new_filename = split_filename[2].split('_')[0] + '.dsb'
+                    new_filename = os.path.join(path, new_filename)
+                    shutil.move(filename, new_filename)
+                    print(f'move file {filename} to {new_filename}')
+
+        # 删除临时dsb文件夹
+        os.removedirs(tmpFolder)
+
 
 
 
@@ -323,6 +402,8 @@ class DataLoaderFromQdbToCSV():
 
 if __name__ == "__main__":
 
+    dl = DataLoaderFromQdbToCSV()
+    dl.save_bin_data('/home/hujiaye/Wondertrader/code/wtpy/scripts/storage/csv', '/home/hujiaye/Wondertrader/code/wtpy/scripts/storage/his')
 
     # # 数据转储方法1
     # stks = api.get_stk_list().reset_index()
@@ -333,31 +414,31 @@ if __name__ == "__main__":
     # # 数据转储方式2
     # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY)
 
-    import sys
-    savedStdout = sys.stdout
-    savedStderr = sys.stderr
-    f = open('log.txt', 'a')
+    # import sys
+    # savedStdout = sys.stdout
+    # savedStderr = sys.stderr
+    # f = open('log.txt', 'a')
 
-    sys.stdout = f
-    sys.stderr = f
+    # sys.stdout = f
+    # sys.stderr = f
  
-    dl = DataLoaderFromQdbToCSV()
-    api = QdbApi()
+    # dl = DataLoaderFromQdbToCSV()
+    # api = QdbApi()
 
-    time1 = dt.datetime.now()
-    dl.load_data(list(api.get_stk_list().reset_index()['stk_id']), SecType.STK_MIN)
-    time2 = dt.datetime.now()
+    # time1 = dt.datetime.now()
+    # dl.load_data(list(api.get_stk_list().reset_index()['stk_id']), SecType.STK_MIN)
+    # time2 = dt.datetime.now()
 
-    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+    # print(f"程序执行时间为：{(time2-time1).seconds} seconds")
 
-    time1 = dt.datetime.now()
-    dl.load_data(list(api.get_fut_list().reset_index()['stk_id']), SecType.FUT_MIN)
-    time2 = dt.datetime.now()
+    # time1 = dt.datetime.now()
+    # dl.load_data(list(api.get_fut_list().reset_index()['stk_id']), SecType.FUT_MIN)
+    # time2 = dt.datetime.now()
 
-    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+    # print(f"程序执行时间为：{(time2-time1).seconds} seconds")
 
 
-    f.close()
+    # f.close()
 
-    sys.stdout = savedStdout
-    sys.stderr = savedStderr
+    # sys.stdout = savedStdout
+    # sys.stderr = savedStderr
