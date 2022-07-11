@@ -403,7 +403,7 @@ class DataLoaderFromQdbToCSV():
 if __name__ == "__main__":
 
     dl = DataLoaderFromQdbToCSV()
-    dl.save_bin_data('/home/hujiaye/Wondertrader/code/wtpy/scripts/storage/csv', '/home/hujiaye/Wondertrader/code/wtpy/scripts/storage/his')
+    dl.save_bin_data('/home/hujiaye/Wondertrader/code/wtpy/demos/storage/csv', '/home/hujiaye/Wondertrader/code/wtpy/demos/storage/his')
 
     # # 数据转储方法1
     # stks = api.get_stk_list().reset_index()

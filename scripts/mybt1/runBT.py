@@ -37,7 +37,7 @@ if __name__ == "__main__":
     engine.commitBTConfig()
 
     # 创建策略，注意日线的时期需要写成d1
-    stra_info = MyStraFut(name='mybacktest', code="SZSE.STK.002469", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    stra_info = MyStraFut(name='mybacktest', code="SSE.STK.603983", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 
