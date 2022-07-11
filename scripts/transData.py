@@ -1,4 +1,3 @@
-from fileinput import filename
 import sys
 sys.path.append('..')
 
@@ -360,10 +359,6 @@ class DataLoaderFromQdbToCSV():
         # 删除临时dsb文件夹
         os.removedirs(tmpFolder)
 
-
-
-
-
     def resample_bars(self, barFile:str, period:str, times:int, fromTime:int, endTime:int, sessInfo:SessionInfo, csvname:str):
         '''
         [deprecated]
@@ -403,41 +398,35 @@ class DataLoaderFromQdbToCSV():
 
 if __name__ == "__main__":
 
-
-    # # 数据转储方法1
-    # stks = api.get_stk_list().reset_index()
-
-    # for stk in stks['stk_id']:
-    #     dl.load_data(stk, SecType.STK_DAILY)
-    #     # pass
-    # # 数据转储方式2
-    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY)
-
-    import sys
-    savedStdout = sys.stdout
-    savedStderr = sys.stderr
-    f = open('log-d.txt', 'a')
-
-    sys.stdout = f
-    sys.stderr = f
- 
     dl = DataLoaderFromQdbToCSV()
-    api = QdbApi()
+    dl.save_bin_data('/home/hujiaye/Wondertrader/code/wtpy/demos/storage/csv', '/home/hujiaye/Wondertrader/code/wtpy/demos/storage/his')
+    
 
-    time1 = dt.datetime.now()
-    dl.load_data(list(api.get_stk_list().reset_index()['stk_id']), SecType.STK_DAILY, start_date=dt.date(1900, 1, 1), end_date=dt.date(2300, 1,1))
-    time2 = dt.datetime.now()
+    # import sys
+    # savedStdout = sys.stdout
+    # savedStderr = sys.stderr
+    # f = open('log-d.txt', 'a')
 
-    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+    # sys.stdout = f
+    # sys.stderr = f
+ 
+    # dl = DataLoaderFromQdbToCSV()
+    # api = QdbApi()
 
-    time1 = dt.datetime.now()
-    dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY, start_date=dt.date(1900, 1, 1), end_date=dt.date(2300, 1,1))
-    time2 = dt.datetime.now()
+    # time1 = dt.datetime.now()
+    # dl.load_data(list(api.get_stk_list().reset_index()['stk_id']), SecType.STK_DAILY, start_date=dt.date(1900, 1, 1), end_date=dt.date(2300, 1,1))
+    # time2 = dt.datetime.now()
 
-    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+    # print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+
+    # time1 = dt.datetime.now()
+    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY, start_date=dt.date(1900, 1, 1), end_date=dt.date(2300, 1,1))
+    # time2 = dt.datetime.now()
+
+    # print(f"程序执行时间为：{(time2-time1).seconds} seconds")
 
 
-    f.close()
+    # f.close()
 
-    sys.stdout = savedStdout
-    sys.stderr = savedStderr
+    # sys.stdout = savedStdout
+    # sys.stderr = savedStderr
