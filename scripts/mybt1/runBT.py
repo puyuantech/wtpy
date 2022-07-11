@@ -32,12 +32,12 @@ if __name__ == "__main__":
     # 配置回测起止时间
     engine.configBacktest(202109010930,202110011500)
 
-    engine.configBTStorage(mode="csv", path="/home/hujiaye/Wondertrader/storage/")
+    engine.configBTStorage(mode="csv", path="/Wondertrader/storage/")
     # 向wt内核提交配置文件，如果回测引擎设置bDumpCfg为True，则会在本地也生成配置文件
     engine.commitBTConfig()
 
-    # 创建策略，注意日线的时期需要写成d1
-    stra_info = MyStraFut(name='mybacktest', code="SSE.STK.603983", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    # 创建策略，注意：日线的时期需要写成d1，code需要符合wt的格式
+    stra_info = MyStraFut(name='mybacktest', code="SZSE.STK.000023", barCnt=50, period="d1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 

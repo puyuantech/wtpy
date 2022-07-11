@@ -25,7 +25,7 @@ REQUIRED = [
     'numpy', 
     'pandas', 
     'xlsxwriter', 
-    'flask==1.1.2', 
+    'flask', 
     'flask_socketio==4.3.1', 
     'pyquery', 
     'flask-compress', 
