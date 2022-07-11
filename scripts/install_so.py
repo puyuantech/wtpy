@@ -1,4 +1,5 @@
 import os
+import argparse
 import shutil
 
 '''
@@ -157,8 +158,12 @@ def install_so(srcPath:str, dstPath:str):
                 print(f"copy {ogn} to {tgt}")   
             
 
-
+parser = argparse.ArgumentParser()
+parser.add_argument('--source', '-s', help='源so文件存放目录', default='/Wondertrader/code/wtcpp/src/build_all/build_x64/Release/bin')
+parser.add_argument('--destination', '-d', help='目标so文件存放目录', default='/Wondertrader/code/wtpy/wtpy/wrapper/linux')
+args = parser.parse_args()
 
 
 if __name__ == "__main__":
-    install_so('/home/hujiaye/Wondertrader/code/wtcpp/src/build_all/build_x64/Release/bin', '/home/hujiaye/Wondertrader/code/wtpy/wtpy/wrapper/linux')
+
+    install_so(args.source, args.destination)
