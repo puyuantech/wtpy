@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../..')
-
 from wtpy import WtBtEngine,EngineType
 from wtpy.apps import WtBtAnalyst
 
@@ -32,7 +29,7 @@ if __name__ == "__main__":
     # 配置回测起止时间
     engine.configBacktest(202109010930,202110011500)
 
-    engine.configBTStorage(mode="csv", path="/Wondertrader/storage/")
+    engine.configBTStorage(mode="csv", path="/home/wondertrader/storage/")
     # 向wt内核提交配置文件，如果回测引擎设置bDumpCfg为True，则会在本地也生成配置文件
     engine.commitBTConfig()
 
