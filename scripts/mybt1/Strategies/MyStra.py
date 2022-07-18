@@ -2,7 +2,7 @@
 from wtpy import BaseCtaStrategy
 from wtpy import CtaContext
 
-class MyStraFut(BaseCtaStrategy):
+class MyStra(BaseCtaStrategy):
     
     def __init__(self, name:str, code:str, barCnt:int, period:str, days:int, k1:float, k2:float):
         BaseCtaStrategy.__init__(self, name)

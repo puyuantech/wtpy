@@ -326,7 +326,7 @@ class DataLoaderFromQdbToCSV():
                 path = binFolder
 
                 if filename.endswith('.dsb'):
-                    split_filename = filename.split('.')
+                    split_filename = filename.split('.') # eg: DCE.A.2209_m1.dsb
 
                     if split_filename[2].find('_m1') != -1:
                         path = os.path.join(path, 'min1')
@@ -342,7 +342,11 @@ class DataLoaderFromQdbToCSV():
 
                     # 重命名并移动文件
                     filename = os.path.join(tmpFolder, filename)
-                    new_filename = split_filename[2].split('_')[0] + '.dsb'
+                    # 区分股票和期货
+                    if split_filename[0] == 'BSE' or split_filename[0] == 'SSE' or split_filename[0] == 'SZSE':
+                        new_filename = split_filename[2].split('_')[0] + '.dsb'
+                    else:
+                        new_filename = split_filename[1] + split_filename[2].split('_')[0] + '.dsb'
                     new_filename = os.path.join(path, new_filename)
                     shutil.move(filename, new_filename)
                     print(f'move file {filename} to {new_filename}')

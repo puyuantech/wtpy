@@ -2,7 +2,7 @@ from wtpy import WtBtEngine,EngineType
 from wtpy.apps import WtBtAnalyst
 
 
-from Strategies.MyStra import MyStraFut
+from Strategies.MyStra import MyStra
 
 
 if __name__ == "__main__":
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     engine.commitBTConfig()
 
     # 创建策略，注意：日线的时期需要写成d1，code需要符合wt的格式
-    stra_info = MyStraFut(name='mybacktest', code="SZSE.STK.000038", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    stra_info = MyStra(name='mybacktest', code="SZSE.STK.000038", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 
