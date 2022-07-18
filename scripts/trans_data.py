@@ -400,7 +400,7 @@ if __name__ == "__main__":
     import sys
     savedStdout = sys.stdout
     savedStderr = sys.stderr
-    f = open('log_trans_bin.txt', 'a')
+    f = open('new_log_trans_bin.txt', 'a')
 
     sys.stdout = f
     sys.stderr = f
@@ -409,7 +409,7 @@ if __name__ == "__main__":
 
 
     time1 = dt.datetime.now()
-    dl.save_bin_data('/Wondertrader/storage/csv/', '/Wondertrader/storage/his/')
+    dl.save_bin_data('/home/wondertrader/storage/csv/', '/home/wondertrader/storage/his/')
     time2 = dt.datetime.now()
 
     print(f"程序执行时间为：{(time2-time1).seconds} seconds")
