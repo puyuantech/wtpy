@@ -393,10 +393,6 @@ class DataLoaderFromQdbToCSV():
 
 if __name__ == "__main__":
 
-    # dl = DataLoaderFromQdbToCSV()
-    # dl.save_bin_data('/home/hujiaye/Wondertrader/code/wtpy/demos/storage/csv', '/home/hujiaye/Wondertrader/code/wtpy/demos/storage/his')
-    
-
     import sys
     savedStdout = sys.stdout
     savedStderr = sys.stderr
