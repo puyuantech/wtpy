@@ -1,0 +1,18 @@
+{
+	"env": {
+		"mocker": "cta"
+	},
+	"replayer": {
+		"basefiles": {
+			"commodity": "../puyuan_common/commodities.json",
+			"contract": "../puyuan_common/contracts.json",
+			"holiday": "../puyuan_common/holidays.json",
+			"session": "../puyuan_common/sessions.json"
+		},
+		"etime": 202101011500,
+		"fees": "../puyuan_common/stk_fees.json",
+		"mode": "csv",
+		"path": "./storage/",
+		"stime": 202203010900
+	}
+}
