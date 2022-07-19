@@ -21317,7 +21317,7 @@
         "AGTD": {
             "name": "SGE白银T+D",
             "code": "AGTD",
-            "product": "",
+            "product": "AGTD",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21325,7 +21325,7 @@
         "AU50": {
             "name": "SGE黄金50g",
             "code": "AU50",
-            "product": "",
+            "product": "AU",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21349,7 +21349,7 @@
         "AUTD": {
             "name": "SGE黄金T+D",
             "code": "AUTD",
-            "product": "",
+            "product": "AUTD",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21357,7 +21357,7 @@
         "IAU100": {
             "name": "SGE国际版黄金100g",
             "code": "IAU100",
-            "product": "IA",
+            "product": "IAU",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21365,7 +21365,7 @@
         "IAU995": {
             "name": "SGE国际版黄金995",
             "code": "IAU995",
-            "product": "IA",
+            "product": "IAU",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21373,7 +21373,7 @@
         "IAU999": {
             "name": "SGE国际版黄金9999",
             "code": "IAU999",
-            "product": "IA",
+            "product": "IAU",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21381,7 +21381,7 @@
         "NYAUTN06": {
             "name": "SGE纽约金TN06",
             "code": "NYAUTN06",
-            "product": "NYAU",
+            "product": "NYAUTN",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"
@@ -21389,7 +21389,7 @@
         "NYAUTN12": {
             "name": "SGE纽约金TN12",
             "code": "NYAUTN12",
-            "product": "NYAU",
+            "product": "NYAUTN",
             "maxlimitqty": 500,
             "maxmarketqty": 500,
             "exchg": "SGE"

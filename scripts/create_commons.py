@@ -178,7 +178,7 @@ def create_fut_commons():
         element['name'] = 'DCE.' + item.upper()
         basic['DCE'][item.upper()] = element
 
-    nym = {'clu', 'clm', 'clz', 'clk', 'clf', 'cln', 'clq', 'clg', 'clx', 'clh', 'clv', 'clj'}
+    nym = {'cl'}
     for item in nym:
         element = {}
         element['covermode'] = 1

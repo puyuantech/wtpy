@@ -1,6 +1,6 @@
 {
     "SHF": {
-        "BU": {
+        "NI": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -10,9 +10,9 @@
             "exchg": "SHF",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "SHF.BU"
+            "name": "SHF.NI"
         },
-        "SN": {
+        "AU": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -22,103 +22,7 @@
             "exchg": "SHF",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "SHF.SN"
-        },
-        "AL": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.AL"
-        },
-        "PB": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.PB"
-        },
-        "RU": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.RU"
-        },
-        "AG": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.AG"
-        },
-        "SS": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.SS"
-        },
-        "SP": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.SP"
-        },
-        "FU": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.FU"
-        },
-        "HC": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.HC"
+            "name": "SHF.AU"
         },
         "ZN": {
             "covermode": 1,
@@ -144,7 +48,7 @@
             "holiday": "CHINA",
             "name": "SHF.WR"
         },
-        "RB": {
+        "AG": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -154,9 +58,9 @@
             "exchg": "SHF",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "SHF.RB"
+            "name": "SHF.AG"
         },
-        "NI": {
+        "PB": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -166,19 +70,7 @@
             "exchg": "SHF",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "SHF.NI"
-        },
-        "AU": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SHF",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SHF.AU"
+            "name": "SHF.PB"
         },
         "CU": {
             "covermode": 1,
@@ -191,57 +83,117 @@
             "session": "FN2300",
             "holiday": "CHINA",
             "name": "SHF.CU"
+        },
+        "AL": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.AL"
+        },
+        "RU": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.RU"
+        },
+        "SS": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.SS"
+        },
+        "RB": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.RB"
+        },
+        "FU": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.FU"
+        },
+        "SP": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.SP"
+        },
+        "SN": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.SN"
+        },
+        "BU": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.BU"
+        },
+        "HC": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SHF",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SHF.HC"
         }
     },
     "SGE": {
-        "PT": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SGE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SGE.PT"
-        },
-        "AGTD": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SGE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SGE.AGTD"
-        },
-        "NYAUTN": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SGE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SGE.NYAUTN"
-        },
-        "AG": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "SGE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "SGE.AG"
-        },
         "AU": {
             "covermode": 1,
             "pricemode": 1,
@@ -266,6 +218,18 @@
             "holiday": "CHINA",
             "name": "SGE.AUTD"
         },
+        "AG": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SGE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SGE.AG"
+        },
         "IAU": {
             "covermode": 1,
             "pricemode": 1,
@@ -277,10 +241,46 @@
             "session": "FN2300",
             "holiday": "CHINA",
             "name": "SGE.IAU"
+        },
+        "NYAUTN": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SGE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SGE.NYAUTN"
+        },
+        "AGTD": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SGE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SGE.AGTD"
+        },
+        "PT": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "SGE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "SGE.PT"
         }
     },
     "CZC": {
-        "SM": {
+        "RO": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -290,79 +290,7 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.SM"
-        },
-        "PF": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.PF"
-        },
-        "AP": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.AP"
-        },
-        "CF": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.CF"
-        },
-        "OI": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.OI"
-        },
-        "JR": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.JR"
-        },
-        "RS": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.RS"
+            "name": "CZC.RO"
         },
         "TA": {
             "covermode": 1,
@@ -376,7 +304,7 @@
             "holiday": "CHINA",
             "name": "CZC.TA"
         },
-        "SA": {
+        "WS": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -386,9 +314,9 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.SA"
+            "name": "CZC.WS"
         },
-        "RO": {
+        "PM": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -398,9 +326,9 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.RO"
+            "name": "CZC.PM"
         },
-        "FG": {
+        "PK": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -410,7 +338,7 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.FG"
+            "name": "CZC.PK"
         },
         "SR": {
             "covermode": 1,
@@ -436,7 +364,7 @@
             "holiday": "CHINA",
             "name": "CZC.MA"
         },
-        "WS": {
+        "ME": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -446,9 +374,9 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.WS"
+            "name": "CZC.ME"
         },
-        "SF": {
+        "SA": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -458,67 +386,7 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.SF"
-        },
-        "CJ": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.CJ"
-        },
-        "UR": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.UR"
-        },
-        "TC": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.TC"
-        },
-        "CY": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.CY"
-        },
-        "RI": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.RI"
+            "name": "CZC.SA"
         },
         "WT": {
             "covermode": 1,
@@ -532,7 +400,7 @@
             "holiday": "CHINA",
             "name": "CZC.WT"
         },
-        "ZC": {
+        "CJ": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -542,9 +410,9 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.ZC"
+            "name": "CZC.CJ"
         },
-        "PK": {
+        "JR": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -554,55 +422,7 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.PK"
-        },
-        "WH": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.WH"
-        },
-        "RM": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.RM"
-        },
-        "ME": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.ME"
-        },
-        "ER": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CZC",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CZC.ER"
+            "name": "CZC.JR"
         },
         "LR": {
             "covermode": 1,
@@ -616,7 +436,7 @@
             "holiday": "CHINA",
             "name": "CZC.LR"
         },
-        "PM": {
+        "ER": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -626,11 +446,191 @@
             "exchg": "CZC",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CZC.PM"
+            "name": "CZC.ER"
+        },
+        "UR": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.UR"
+        },
+        "SM": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.SM"
+        },
+        "FG": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.FG"
+        },
+        "RM": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.RM"
+        },
+        "ZC": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.ZC"
+        },
+        "CF": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.CF"
+        },
+        "PF": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.PF"
+        },
+        "TC": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.TC"
+        },
+        "WH": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.WH"
+        },
+        "RS": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.RS"
+        },
+        "RI": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.RI"
+        },
+        "AP": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.AP"
+        },
+        "SF": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.SF"
+        },
+        "CY": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.CY"
+        },
+        "OI": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CZC",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CZC.OI"
         }
     },
     "CFE": {
-        "TS": {
+        "IH": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -640,31 +640,7 @@
             "exchg": "CFE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CFE.TS"
-        },
-        "TF": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CFE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CFE.TF"
-        },
-        "T": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "CFE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "CFE.T"
+            "name": "CFE.IH"
         },
         "IF": {
             "covermode": 1,
@@ -678,7 +654,7 @@
             "holiday": "CHINA",
             "name": "CFE.IF"
         },
-        "IH": {
+        "TF": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -688,7 +664,31 @@
             "exchg": "CFE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "CFE.IH"
+            "name": "CFE.TF"
+        },
+        "TS": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CFE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CFE.TS"
+        },
+        "T": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "CFE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "CFE.T"
         },
         "IC": {
             "covermode": 1,
@@ -704,7 +704,7 @@
         }
     },
     "INE": {
-        "NR": {
+        "SC": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -714,7 +714,7 @@
             "exchg": "INE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "INE.NR"
+            "name": "INE.SC"
         },
         "BC": {
             "covermode": 1,
@@ -728,6 +728,18 @@
             "holiday": "CHINA",
             "name": "INE.BC"
         },
+        "NR": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "INE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "INE.NR"
+        },
         "LU": {
             "covermode": 1,
             "pricemode": 1,
@@ -739,22 +751,10 @@
             "session": "FN2300",
             "holiday": "CHINA",
             "name": "INE.LU"
-        },
-        "SC": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "INE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "INE.SC"
         }
     },
     "DCE": {
-        "JD": {
+        "BB": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -764,163 +764,7 @@
             "exchg": "DCE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "DCE.JD"
-        },
-        "FB": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.FB"
-        },
-        "EB": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.EB"
-        },
-        "PP": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.PP"
-        },
-        "P": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.P"
-        },
-        "EG": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.EG"
-        },
-        "I": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.I"
-        },
-        "C": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.C"
-        },
-        "LH": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.LH"
-        },
-        "CS": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.CS"
-        },
-        "B": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.B"
-        },
-        "Y": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.Y"
-        },
-        "J": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.J"
-        },
-        "PG": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "DCE",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "DCE.PG"
+            "name": "DCE.BB"
         },
         "RR": {
             "covermode": 1,
@@ -934,6 +778,30 @@
             "holiday": "CHINA",
             "name": "DCE.RR"
         },
+        "C": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.C"
+        },
+        "I": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.I"
+        },
         "L": {
             "covermode": 1,
             "pricemode": 1,
@@ -945,6 +813,66 @@
             "session": "FN2300",
             "holiday": "CHINA",
             "name": "DCE.L"
+        },
+        "P": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.P"
+        },
+        "J": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.J"
+        },
+        "B": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.B"
+        },
+        "JD": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.JD"
+        },
+        "EG": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.EG"
         },
         "M": {
             "covermode": 1,
@@ -958,6 +886,18 @@
             "holiday": "CHINA",
             "name": "DCE.M"
         },
+        "JM": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.JM"
+        },
         "V": {
             "covermode": 1,
             "pricemode": 1,
@@ -970,7 +910,7 @@
             "holiday": "CHINA",
             "name": "DCE.V"
         },
-        "JM": {
+        "EB": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -980,7 +920,67 @@
             "exchg": "DCE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "DCE.JM"
+            "name": "DCE.EB"
+        },
+        "FB": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.FB"
+        },
+        "PG": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.PG"
+        },
+        "CS": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.CS"
+        },
+        "Y": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.Y"
+        },
+        "PP": {
+            "covermode": 1,
+            "pricemode": 1,
+            "category": 1,
+            "precision": 0,
+            "pricetick": 1.0,
+            "volscale": 10,
+            "exchg": "DCE",
+            "session": "FN2300",
+            "holiday": "CHINA",
+            "name": "DCE.PP"
         },
         "A": {
             "covermode": 1,
@@ -994,7 +994,7 @@
             "holiday": "CHINA",
             "name": "DCE.A"
         },
-        "BB": {
+        "LH": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -1004,11 +1004,11 @@
             "exchg": "DCE",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "DCE.BB"
+            "name": "DCE.LH"
         }
     },
     "NYM": {
-        "CLX": {
+        "CL": {
             "covermode": 1,
             "pricemode": 1,
             "category": 1,
@@ -1018,139 +1018,7 @@
             "exchg": "NYM",
             "session": "FN2300",
             "holiday": "CHINA",
-            "name": "NYM.CLX"
-        },
-        "CLM": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLM"
-        },
-        "CLF": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLF"
-        },
-        "CLV": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLV"
-        },
-        "CLK": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLK"
-        },
-        "CLQ": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLQ"
-        },
-        "CLH": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLH"
-        },
-        "CLJ": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLJ"
-        },
-        "CLG": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLG"
-        },
-        "CLN": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLN"
-        },
-        "CLZ": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLZ"
-        },
-        "CLU": {
-            "covermode": 1,
-            "pricemode": 1,
-            "category": 1,
-            "precision": 0,
-            "pricetick": 1.0,
-            "volscale": 10,
-            "exchg": "NYM",
-            "session": "FN2300",
-            "holiday": "CHINA",
-            "name": "NYM.CLU"
+            "name": "NYM.CL"
         }
     }
 }

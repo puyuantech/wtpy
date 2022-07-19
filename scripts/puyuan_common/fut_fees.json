@@ -555,73 +555,7 @@
         "closetoday":0.0,
         "byvolume":true
     },
-    "NYM.CLU" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLM" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLZ" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLK" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLF" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLN" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLQ" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLG" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLX" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLH" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLV" : {
-        "open":3.01,
-        "close":3.01,
-        "closetoday":0.0,
-        "byvolume":true
-    },
-    "NYM.CLJ" : {
+    "NYM.CL" : {
         "open":3.01,
         "close":3.01,
         "closetoday":0.0,

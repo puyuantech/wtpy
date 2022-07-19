@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     folder目录下必须有contractfile和sessionfile参数指定的文件
     '''
-    engine.init(folder='../common/', cfgfile="configbt.json", commfile="stk_comms.json", contractfile="stocks.json")
+    engine.init(folder='../puyuan_common/', cfgfile="configbt.json", commfile="fut_comms.json", contractfile="fut_contracts.json", sessionfile='fut_sessions.json')
     # 配置回测起止时间
     engine.configBacktest(202109010930,202110011500)
 
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     engine.commitBTConfig()
 
     # 创建策略，注意：日线的时期需要写成d1，code需要符合wt的格式
-    stra_info = MyStra(name='mybacktest', code="SZSE.STK.000038", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    stra_info = MyStra(name='mybacktest', code="DCE.A.2205", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 
