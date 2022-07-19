@@ -5,7 +5,6 @@ import shutil
 '''
 用于将wtcpp编译得到的so文件精准安装到wtpy
 
-
 不在编译过程中产生的so文件：
     libthostmduserapi.so
     libUSTPmduserapiAF.so
@@ -31,6 +30,14 @@ def install_so(srcPath:str, dstPath:str):
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
+                
+            # add libTraderDumper.so for wtpy v0.9.3
+            elif file == 'libTraderDumper.so':
+                ogn = os.path.join(p, file)
+                tgt = os.path.join(dstPath, file)
+                shutil.copy(ogn, tgt)
+                print(f"copy {ogn} to {tgt}")
+
             elif file == 'libCTPOptLoader.so':
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, file)
