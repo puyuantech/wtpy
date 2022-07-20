@@ -34,7 +34,7 @@ if __name__ == "__main__":
     engine.commitBTConfig()
 
     # 创建策略，注意：日线的时期需要写成d1，code需要符合wt的格式
-    stra_info = MyStra(name='mybacktest', code="SZSE.STK.000002", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    stra_info = MyStra(name='stk_backtest', code="SZSE.STK.000002", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     # 绩效分析
     analyst = WtBtAnalyst()
-    analyst.add_strategy("mySTKbacktest", folder="./outputs_bt/mybacktest/", init_capital=500000000000, rf=0.02, annual_trading_days=240)
+    analyst.add_strategy("stk_backtest", folder="./outputs_bt/", init_capital=500000000000, rf=0.02, annual_trading_days=240)
     analyst.run()
 
     kw = input('press any key to exit\n')
