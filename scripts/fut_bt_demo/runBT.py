@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # 配置回测起止时间
     engine.configBacktest(202109010930,202110011500)
 
-    engine.configBTStorage(mode="csv", path="/home/wondertrader/storage/")
+    engine.configBTStorage(mode="csv", path="/mnt/data/wtdata/storage")
     # 向wt内核提交配置文件，如果回测引擎设置bDumpCfg为True，则会在本地也生成配置文件
     engine.commitBTConfig()
 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     # 绩效分析
     analyst = WtBtAnalyst()
     analyst.add_strategy("fut_backtest", folder="./outputs_bt/", init_capital=500000000000, rf=0.02, annual_trading_days=240)
-    analyst.run()
+    analyst.run_new()
 
     kw = input('press any key to exit\n')
     engine.release_backtest()

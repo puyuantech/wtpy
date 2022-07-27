@@ -1,6 +1,4 @@
 import sys
-sys.path.append('..')
-
 import os
 import shutil
 from qdb import QdbApi
@@ -10,12 +8,10 @@ from enum import Enum
 from typing import Optional, List, Union
 
 from wtpy.wrapper import WtDataHelper
-from wtpy.WtCoreDefs import WTSBarStruct, WTSTickStruct, BarList, TickList
-from wtpy.SessionMgr import SessionInfo, SessionMgr
-from ctypes import POINTER
+
+from wtpy.SessionMgr import SessionInfo
 
 # export QDB_CONFIG_PATH=~/.qdb/config.yml
-# export QDB_CONFIG_PATH=/Wondertrader/.qdb/config.yml
 
 
 class SecType(Enum):
@@ -27,7 +23,7 @@ class SecType(Enum):
     FUT_DAILY = 5
 
 
-class DataLoaderFromQdbToCSV():
+class DataLoaderFromQdb():
 
     def __init__(self) -> None:
         self.__cli = QdbApi()
@@ -208,19 +204,21 @@ class DataLoaderFromQdbToCSV():
  
     def trans_sec_id(self):
         '''
-        将证券代码存储为wt格式，股票的北交所暂未支持
+        将证券代码存储为wt格式
         '''
-        split_sec_id = self.__sec_id.split('.')
+        split_sec_id = self.__sec_id.split('.') # 000005.SZ or A2209.DCE 
         left = split_sec_id[0]
         right = split_sec_id[1]
 
         if self.__sec_type == SecType.FUT_MIN or self.__sec_type == SecType.FUT_DAILY:      
             sub = ''
             code = ''
+            flag = True
             for ch in left:
-                if ch.isalpha():
-                    sub += ch.lower()
-                elif ch.isnumeric():
+                if ch.isalpha() and flag == True:
+                    sub += ch
+                else:
+                    flag = False
                     code += ch
 
             self.__sec_id = right + '.' + sub + '.' + code
@@ -230,6 +228,8 @@ class DataLoaderFromQdbToCSV():
                 right = 'SZSE'
             elif right == 'SH':
                 right = 'SSE'
+            elif right == 'BJ':
+                right = 'BSE'
             
             self.__sec_id = right + '.STK.' + left
 
@@ -318,6 +318,8 @@ class DataLoaderFromQdbToCSV():
         shutil.rmtree(dir_m5)
         shutil.rmtree(dir_d)
 
+        print("Remove tmp dir in storage/csv")
+
         # 将dsb文件移动到正确的路径下
         dir = os.walk(tmpFolder)
         for p, dir_list, file_list in dir:
@@ -381,7 +383,7 @@ class DataLoaderFromQdbToCSV():
             try:
                 df = self.get_data(sec_id, sec_type, start_date, end_date, fields)
                 df = self.trans_data(df)
-                self.save_csv_data(df, path='/home/hujiaye/Wondertrader/storage')
+                self.save_csv_data(df, path=path)
             except:
                 print("    Error: 处理该证券时发生错误")
 
@@ -392,25 +394,30 @@ class DataLoaderFromQdbToCSV():
 
 
 if __name__ == "__main__":
-
+    
+    
+    api = QdbApi()
     import sys
     savedStdout = sys.stdout
     savedStderr = sys.stderr
-    f = open('new_log_trans_bin.txt', 'a')
+    f = open('log_trans_dsb.txt', 'a')
 
     sys.stdout = f
     sys.stderr = f
  
-    dl = DataLoaderFromQdbToCSV()
+    dl = DataLoaderFromQdb()
 
 
     time1 = dt.datetime.now()
-    dl.save_bin_data('/home/wondertrader/storage/csv/', '/home/wondertrader/storage/his/')
+
+    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_MIN, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
+    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
+    
+    dl.save_bin_data("/home/hujiaye/storage/csv", "/home/hujiaye/storage/his");
+    
     time2 = dt.datetime.now()
 
     print(f"程序执行时间为：{(time2-time1).seconds} seconds")
-
-    
 
     f.close()
 
