@@ -1,0 +1,4 @@
+types,open,close,closetoday,byvolume
+SSE.STK,0.001,0.0012,0.0,False
+SZSE.STK,0.001,0.0012,0.0,False
+BSE.STK,0.001,0.0012,0.0,False

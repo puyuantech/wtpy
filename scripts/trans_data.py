@@ -6,10 +6,10 @@ import datetime as dt
 import pandas as pd
 from enum import Enum
 from typing import Optional, List, Union
+import traceback
 
 from wtpy.wrapper import WtDataHelper
 
-from wtpy.SessionMgr import SessionInfo
 
 # export QDB_CONFIG_PATH=~/.qdb/config.yml
 
@@ -198,7 +198,7 @@ class DataLoaderFromQdb():
             print("非法的证券类型!")
             return None
         
-        print(f'    Stage2:处理{self.__sec_id}的DataFrame格式完毕')
+        print(f'    Stage2: 处理{self.__sec_id}的DataFrame格式完毕')
         
         return df
  
@@ -246,15 +246,12 @@ class DataLoaderFromQdb():
             print("传入save_csv_data()的DataFrame为None")
             return
 
-        if not path.endswith('/'):
-            path += '/'
-
-        path += 'csv/'
+        path = os.path.join(path, 'csv')
         # 修改sec_id为wt格式
         self.trans_sec_id()
 
-        filename = path + self.__sec_id + '_' + self.__suffix + '.csv'
-        df.to_csv(filename, index=False)
+        filename = self.__sec_id + '_' + self.__suffix + '.csv'
+        df.to_csv(os.path.join(path, filename), index=False)
 
         print(f'    Stage3: 以CSV格式存储{self.__sec_id}的DataFrame完毕')
 
@@ -356,17 +353,6 @@ class DataLoaderFromQdb():
         # 删除临时dsb文件夹
         os.removedirs(tmpFolder)
 
-    def resample_bars(self, barFile:str, period:str, times:int, fromTime:int, endTime:int, sessInfo:SessionInfo, csvname:str):
-        '''
-        [deprecated]
-        # todo@ronniehu
-        '''
-        dtHelper = WtDataHelper()
-        res = dtHelper.resample_bars(barFile, period, times, fromTime, endTime, sessInfo)
-        df = res.to_pandas()
-        df.to_csv(csvname)        
-
-
     def load_data(self, sec_ids: Union[str, List[str]], sec_type: SecType, start_date: Optional[dt.date]=None, end_date: Optional[dt.date]=None, fields: List[str]=None, path:str='/home/hujiaye/Wondertrader/storage/'):
         '''
         主力API，用于批量读取、转换格式、存储证券数据到CSV文件中
@@ -389,37 +375,131 @@ class DataLoaderFromQdb():
 
             print(f"处理证券{sec_id}结束\n")
 
+class StkDailyDataLoaderFromParquet:
+    def __init__(self, path) -> None:
+        self.__stk_daily = pd.read_parquet(path)
+        self.__api = QdbApi()    
+        self.__stk_id = ''      # 证券代码，用作每次循环的变量
+
+        if self.__stk_daily is None:
+            print('初始化数据失败，请检查路径')
+            return None
+        
+    def get_stk_daily(self, ticker:str) -> Optional[pd.DataFrame]:
+        self.__stk_id = ticker
+
+        data = self.__stk_daily.loc[self.__stk_daily['stk_id'] == ticker]
+
+        if data is None:
+            print("get_stk_daily()得到的数据为None，请检查ticker")     
+            return None   
+
+        print(f"    Stage 1: get {ticker} daily data")
+
+        return data
+
+    def trans_stk_daily(self, df: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
+        if df is None:
+            print("传入trans_stk_daily()的DataFrame为None")
+            return None
+
+        reserved_fields = ['date', 'open', 'close', 'high', 'low', 'volume', 'amount']
+
+        df = df.loc[:, reserved_fields]
+
+        df = df.rename(columns={'date': '<Date>', 
+                                'volume' : '<Vol>', 
+                                'amount' : '<Money>',
+                                'open' : '<Open>',
+                                'close' : '<Close>',
+                                'high' : '<High>',
+                                'low' : '<Low>'})
+
+        df['<Date>'] = df['<Date>'].astype('datetime64').dt.strftime('%Y/%m/%d')
+
+        print(f"    Stage 2: trans stk daily data format")
+
+        return df
+
+    def trans_stk_id(self):
+        split_stk_id = self.__stk_id.split('.') # eg: 000005.SZ 
+        left = split_stk_id[0]
+        right = split_stk_id[1]
+
+        if right == 'SZ':
+            right = 'SZSE'
+        elif right == 'SH':
+            right = 'SSE'
+        elif right == 'BJ':
+            right = 'BSE'
+            
+        self.__stk_id = right + '.STK.' + left
+
+    def save_csv_data(self, df: Optional[pd.DataFrame], path:str):
+        if df is None:
+            print("传入save_csv_data()的DataFrame为None")
+            return
+
+        # 修改sec_id为wt格式
+        self.trans_stk_id()
+
+        path = os.path.join(path, 'csv')
+        filename = self.__stk_id + '_d.csv'
+        
+        df.to_csv(os.path.join(path, filename), index=False)
+
+        print(f'    Stage 3: 以CSV格式存储{self.__stk_id}的DataFrame完毕')
+
+    def load_data(self, path:str):
+        stk_list = list(self.__api.get_stk_list().reset_index()['stk_id'])
+        for stk in stk_list:
+            print(f'处理股票{stk}:')
+            try:
+                df = self.get_stk_daily(stk)
+                df = self.trans_stk_daily(df)
+                self.save_csv_data(df, path)
+            except Exception as e:
+                traceback.print_exc()
+                print("    Error: 处理该证券时发生错误")
+
+
 
 
 
 
 if __name__ == "__main__":
     
-    
-    api = QdbApi()
-    import sys
-    savedStdout = sys.stdout
-    savedStderr = sys.stderr
-    f = open('log_trans_dsb.txt', 'a')
+    # dl = StkDailyDataLoaderFromParquet('/mnt/data/stock_daily.data')
+    # dl.load_data('/home/hujiaye/Wondertrader/code/wtpy/demos/storage')
 
-    sys.stdout = f
-    sys.stderr = f
- 
     dl = DataLoaderFromQdb()
+    dl.load_data(['000001.SZ', '000002.SZ', '000009.SZ'], SecType.STK_DAILY, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/Wondertrader/code/wtpy/demos/storage')
 
-
-    time1 = dt.datetime.now()
-
-    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_MIN, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
-    # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
     
-    dl.save_bin_data("/home/hujiaye/storage/csv", "/home/hujiaye/storage/his");
+    # api = QdbApi()
+    # import sys
+    # savedStdout = sys.stdout
+    # savedStderr = sys.stderr
+    # f = open('log_trans_dsb.txt', 'a')
+
+    # sys.stdout = f
+    # sys.stderr = f
+ 
+    # dl = DataLoaderFromQdb()
+
+
+    # time1 = dt.datetime.now()
+
+    # # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_MIN, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
+    # # dl.load_data(list(api.get_fut_list().reset_index()['fut_id']), SecType.FUT_DAILY, start_date=dt.date(1900,1,1), end_date=dt.date(2200,1,1), path='/home/hujiaye/storage')
     
-    time2 = dt.datetime.now()
+    # dl.save_bin_data("/home/hujiaye/storage/csv", "/home/hujiaye/storage/his")
+    
+    # time2 = dt.datetime.now()
 
-    print(f"程序执行时间为：{(time2-time1).seconds} seconds")
+    # print(f"程序执行时间为：{(time2-time1).seconds} seconds")
 
-    f.close()
+    # f.close()
 
-    sys.stdout = savedStdout
-    sys.stderr = savedStderr
+    # sys.stdout = savedStdout
+    # sys.stderr = savedStderr
