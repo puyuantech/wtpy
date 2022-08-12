@@ -1,4 +1,4 @@
-FROM wtbase:0.1
+FROM wtbase:0.2
 
 LABEL name="wtapp"
 LABEL maintainer="puyuan<github@puyuan.tech>"
