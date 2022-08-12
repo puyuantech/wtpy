@@ -53,12 +53,12 @@ def install_so(srcPath:str, dstPath:str):
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")   
-            elif file == 'libWtDataStorage.so' and p.endswith('bin'):
+            elif file == 'libWtDataStorage.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libWtDataStorageAD.so' and p.endswith('bin'):
+            elif file == 'libWtDataStorageAD.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
@@ -83,7 +83,7 @@ def install_so(srcPath:str, dstPath:str):
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")   
-            elif file == 'libWtMsgQue.so' and p.endswith('bin'):
+            elif file == 'libWtMsgQue.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
@@ -93,22 +93,22 @@ def install_so(srcPath:str, dstPath:str):
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libWtRiskMonFact.so' and p.endswith('bin'):
+            elif file == 'libWtRiskMonFact.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libWtExeFact.so' and p.endswith('bin'):
+            elif file == 'libWtExeFact.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'executer', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libParserCTP.so' and p.endswith('bin'):
+            elif file == 'libParserCTP.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libParserCTPMini.so' and p.endswith('bin'):
+            elif file == 'libParserCTPMini.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
@@ -118,47 +118,47 @@ def install_so(srcPath:str, dstPath:str):
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libParserFemas.so' and p.endswith('bin'):
+            elif file == 'libParserFemas.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")    
-            elif file == 'libParserUDP.so' and p.endswith('bin'):
+            elif file == 'libParserUDP.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")   
-            elif file == 'libParserXTP.so' and p.endswith('bin'):
+            elif file == 'libParserXTP.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'parsers', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")   
-            elif file == 'libTraderCTP.so' and p.endswith('bin'):
+            elif file == 'libTraderCTP.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")   
-            elif file == 'libTraderCTPMini.so' and p.endswith('bin'):
+            elif file == 'libTraderCTPMini.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")    
-            elif file == 'libTraderCTPOpt.so' and p.endswith('bin'):
+            elif file == 'libTraderCTPOpt.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")    
-            elif file == 'libTraderFemas.so' and p.endswith('bin'):
+            elif file == 'libTraderFemas.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")    
-            elif file == 'libTraderMocker.so' and p.endswith('bin'):
+            elif file == 'libTraderMocker.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)
                 print(f"copy {ogn} to {tgt}")  
-            elif file == 'libTraderXTP.so' and p.endswith('bin'):
+            elif file == 'libTraderXTP.so' and (p.endswith('bin') or p.endswith('bin/')):
                 ogn = os.path.join(p, file)
                 tgt = os.path.join(dstPath, 'traders', file)
                 shutil.copy(ogn, tgt)

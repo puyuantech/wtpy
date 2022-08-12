@@ -25,16 +25,16 @@ if __name__ == "__main__":
 
     folder目录下必须有contractfile和sessionfile参数指定的文件
     '''
-    engine.init(folder='../puyuan_common/', cfgfile="configbt.json", commfile="stk_comms.json", contractfile="stk_contracts.json", sessionfile='stk_sessions.json')
+    engine.init(folder='../../common/', cfgfile="configbt.json", commfile="fut_comms.json", contractfile="fut_contracts.json", sessionfile='sessions.json')
     # 配置回测起止时间
     engine.configBacktest(202109010930,202110011500)
 
-    engine.configBTStorage(mode="csv", path="/home/wondertrader/storage/")
+    engine.configBTStorage(mode="csv", path="/mnt/data/wtdata/storage")
     # 向wt内核提交配置文件，如果回测引擎设置bDumpCfg为True，则会在本地也生成配置文件
     engine.commitBTConfig()
 
     # 创建策略，注意：日线的时期需要写成d1，code需要符合wt的格式
-    stra_info = MyStra(name='stk_backtest', code="SZSE.STK.000002", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
+    stra_info = MyStra(name='fut_backtest', code="DCE.A.2205", barCnt=50, period="m1", days=30, k1=0.1, k2=0.1)
     # 挂载策略
     engine.set_cta_strategy(stra_info)
 
@@ -42,8 +42,8 @@ if __name__ == "__main__":
 
     # 绩效分析
     analyst = WtBtAnalyst()
-    analyst.add_strategy("stk_backtest", folder="./outputs_bt/", init_capital=500000000000, rf=0.02, annual_trading_days=240)
-    analyst.run()
+    analyst.add_strategy("fut_backtest", folder="./outputs_bt/", init_capital=500000000000, rf=0.02, annual_trading_days=240)
+    analyst.run_new()
 
     kw = input('press any key to exit\n')
     engine.release_backtest()

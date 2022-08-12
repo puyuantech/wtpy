@@ -6,9 +6,9 @@ root:
         filename: BtLogs/Runner.log
         pattern: '[%Y.%m.%d %H:%M:%S - %-5l] %v'
         truncate: true
-        
-    -   type: console_sink
-        pattern: '[%m.%d %H:%M:%S - %^%-5l%$] %v'
+    # 注意：在jupyter无法将输出信息打印到控制台，需要关闭该输出   
+    # -   type: console_sink
+    #     pattern: '[%m.%d %H:%M:%S - %^%-5l%$] %v'
         
 
 dyn_pattern:

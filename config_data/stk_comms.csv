@@ -1,0 +1,4 @@
+exch,types,covermode,pricemode,category,precision,pricetick,volscale,exchg,session,holiday,name,trademode
+SSE,STK,0,1,0,2,0.01,1,SSE,SD0930,CHINA,上证股票,2
+SZSE,STK,0,1,0,2,0.01,1,SZSE,SD0930,CHINA,深证股票,2
+BSE,STK,0,1,0,2,0.01,1,BSE,SD0930,CHINA,北证股票,2
