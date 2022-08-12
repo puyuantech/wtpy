@@ -451,7 +451,7 @@ class WtBtWrapper:
         except OSError as oe:
             print(oe)
 
-        self.write_log(102, "WonderTrader CTA backtest framework initialzied，version: %s" % (self.ver))
+        self.write_log(102, "WonderTrader CTA backtest framework initialzied, version: %s" % (self.ver))
 
     def initialize_hft(self, logCfg:str = "logcfgbt.yaml", isFile:bool = True, outDir:str = "./outputs_bt"):
         '''
@@ -482,7 +482,7 @@ class WtBtWrapper:
         except OSError as oe:
             print(oe)
 
-        self.write_log(102, "WonderTrader HFT backtest framework initialzied，version: %s" % (self.ver))
+        self.write_log(102, "WonderTrader HFT backtest framework initialzied, version: %s" % (self.ver))
 
     def initialize_sel(self, logCfg:str = "logcfgbt.yaml", isFile:bool = True, outDir:str = "./outputs_bt"):
         '''
@@ -505,7 +505,7 @@ class WtBtWrapper:
         except OSError as oe:
             print(oe)
 
-        self.write_log(102, "WonderTrader SEL backtest framework initialzied，version: %s" % (self.ver))
+        self.write_log(102, "WonderTrader SEL backtest framework initialzied, version: %s" % (self.ver))
 
     def register_extended_data_loader(self, bAutoTrans:bool = True):
         '''

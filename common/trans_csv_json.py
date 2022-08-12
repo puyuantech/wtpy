@@ -1,6 +1,9 @@
 import json
 import pandas as pd
 
+# 用于将config_data目录的csv配置文件转换为common目录的json配置文件的脚本
+
+# 该部分可以将common目录的json配置文件转化为csv类型的配置文件
 def trans_fut_comms_to_csv(src:str, tgt:str):
     res = "exch,types,covermode,pricemode,category,precision,pricetick,volscale,exchg,session,holiday,name\n"
 
@@ -114,7 +117,7 @@ def trans_fees_to_csv(src:str, tgt:str):
     with open(tgt, 'w') as f:
         f.write(res)   
 
-
+# 该部分可以config_data目录的csv配置文件转换为common目录的json配置文件
 def trans_fut_comms_csv_to_json(src:str, tgt:str):
     basic = {}
     basic['SHF'] = {}
